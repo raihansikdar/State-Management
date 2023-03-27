@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-   HomeView({super.key});
+  HomeView({super.key});
 
   final homeController = Get.put(HomeController());
 
@@ -18,7 +18,9 @@ class HomeView extends GetView<HomeController> {
             "HomeView is working",
             style: TextStyle(fontSize: 20),
           ),
-          onLoading: LinearProgressIndicator(),
+          onLoading: const LinearProgressIndicator(),
+          onEmpty: const Text("All caught up!"),
+          onError: (error) => const Text("Something went worng!"),
         ),
       ),
     );
