@@ -1,0 +1,68 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "getx",
+            "cwd": "getx",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "getx (profile mode)",
+            "cwd": "getx",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "getx (release mode)",
+            "cwd": "getx",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "rest_api",
+            "cwd": "rest_api",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "rest_api (profile mode)",
+            "cwd": "rest_api",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "rest_api (release mode)",
+            "cwd": "rest_api",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "statemixin",
+            "cwd": "statemixin",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "statemixin (profile mode)",
+            "cwd": "statemixin",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "statemixin (release mode)",
+            "cwd": "statemixin",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

@@ -14,9 +14,8 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       body: Center(
         child: controller.obx(
-          (state) => const Text(
-            "HomeView is working",
-            style: TextStyle(fontSize: 20),
+          (state) => const Text("HomeView is working",
+          style: TextStyle(fontSize: 20),
           ),
           onLoading: const LinearProgressIndicator(),
           onEmpty: const Text("All caught up!"),

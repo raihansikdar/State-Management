@@ -5,16 +5,16 @@ import 'package:http/http.dart' as http;
 class HomeController extends GetxController with StateMixin<List<String>> {
   @override
   void onInit() {
-    fetchComment();
     super.onInit();
+    fetchComment();
   }
 
   fetchComment() async {
-    var response = await http
+    final response = await http
         .get(Uri.parse('https://afzalali15.github.io/api/comments.json'));
     if (response.statusCode == 200) {
-      var jArray = json.decode(response.body);
-      var comments = List<String>.from(jArray.map((s) => s));
+      final jArray = json.decode(response.body);
+      final comments = List<String>.from(jArray.map((s) => s));
 
       change(comments, status: RxStatus.success());
     }
