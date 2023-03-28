@@ -10,13 +10,22 @@ class HomeController extends GetxController with StateMixin<List<String>> {
   }
 
   fetchComment() async {
-    final response = await http
-        .get(Uri.parse('https://afzalali15.github.io/api/comments.json'));
+    final response = await http.get(Uri.parse(
+        'https://github.com/raihansikdar/State-Management/blob/main/comment.json'));
     if (response.statusCode == 200) {
       final jArray = json.decode(response.body);
       final comments = List<String>.from(jArray.map((s) => s));
 
-      change(comments, status: RxStatus.success());
+      // No records
+      if (comments.isEmpty) {
+        change(null, status: RxStatus.empty());
+      }
+        // success
+        change(comments, status: RxStatus.success());
+      
+    } else {
+      // Error
+      change(null, status: RxStatus.error('errorCode: ${response.statusCode}'));
     }
   }
 

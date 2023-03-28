@@ -14,8 +14,14 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       body: Center(
         child: controller.obx(
-          (state) => const Text("HomeView is working",
-          style: TextStyle(fontSize: 20),
+          (state) => ListView.builder(
+            itemCount: state?.length ?? 0,
+            itemBuilder: (context, index) {
+              return ListTile(
+                leading: const CircleAvatar(radius: 24),
+                title: Text(state?[index] ?? ''),
+              );
+            },
           ),
           onLoading: const LinearProgressIndicator(),
           onEmpty: const Text("All caught up!"),
