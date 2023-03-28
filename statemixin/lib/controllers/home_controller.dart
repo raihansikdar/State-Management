@@ -11,7 +11,7 @@ class HomeController extends GetxController with StateMixin<List<String>> {
 
   fetchComment() async {
     final response = await http.get(Uri.parse(
-        'https://github.com/raihansikdar/State-Management/blob/main/comment.json'));
+        'https://raw.githubusercontent.com/raihansikdar/State-Management/main/comment.json'));
     if (response.statusCode == 200) {
       final jArray = json.decode(response.body);
       final comments = List<String>.from(jArray.map((s) => s));
