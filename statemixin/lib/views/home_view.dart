@@ -25,7 +25,8 @@ class HomeView extends GetView<HomeController> {
           ),
           onLoading: const LinearProgressIndicator(),
           onEmpty: const Text("All caught up!"),
-          onError: (error) => const Text("Something went worng!"),
+          //onError: (error) => const Text("Something went worng!"),
+          onError: (error) => Text(error ?? ''),
         ),
       ),
     );

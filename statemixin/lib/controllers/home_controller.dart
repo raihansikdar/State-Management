@@ -20,9 +20,10 @@ class HomeController extends GetxController with StateMixin<List<String>> {
       if (comments.isEmpty) {
         change(null, status: RxStatus.empty());
       }
+      else{
         // success
-        change(comments, status: RxStatus.success());
-      
+      change(comments, status: RxStatus.success());
+      }
     } else {
       // Error
       change(null, status: RxStatus.error('errorCode: ${response.statusCode}'));
