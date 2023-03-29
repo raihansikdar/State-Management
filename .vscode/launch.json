@@ -63,6 +63,12 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
-        }
+        },
+        {
+            "name": "base_client",
+            "cwd": "base_client",
+            "request": "launch",
+            "type": "dart"
+        },
     ]
 }

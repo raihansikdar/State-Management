@@ -14,7 +14,7 @@ class ShoppingController extends GetxController {
   void fetchProducts() async {
     await Future.delayed(const Duration(seconds: 1));
 
-    dynamic productResult = [
+    final productResult = [
       Product(
         id: 1,
         price: 30,
