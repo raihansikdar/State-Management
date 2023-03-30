@@ -20,8 +20,8 @@ class FetchDataException extends AppException {
       : super(message, 'Unable to process', url);
 }
 
-class ApiNotRespondingExcention extends AppException {
-  ApiNotRespondingExcention([String? message, String? url])
+class ApiNotRespondingException extends AppException {
+  ApiNotRespondingException([String? message, String? url])
       : super(message, 'Api not responded', url);
 }
 

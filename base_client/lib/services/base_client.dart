@@ -7,9 +7,12 @@ import 'package:http/http.dart' as http;
 
 class BaseClient {
   static const int timeOutDuration = 20;
+
   // GET
   Future<dynamic> get(String baseUrl, String api) async {
+    
     final uri = Uri.parse(baseUrl + api);
+    
     try {
       final response =
           await http.get(uri).timeout(const Duration(seconds: timeOutDuration));
@@ -19,14 +22,16 @@ class BaseClient {
       throw FetchDataException('No Internet Connection', uri.toString());
     } 
     on TimeoutException {
-      throw ApiNotRespondingExcention('Api not responding', uri.toString());
+      throw ApiNotRespondingException('Api not responding', uri.toString());
     }
   }
 
   // Post
   Future<dynamic> post(String baseUrl, String api, dynamic payloadObj) async {
+
     final uri = Uri.parse(baseUrl + api);
-    final payload = json.decode(payloadObj);
+    final payload = json.encode(payloadObj.toString());
+    
     try {
       final response =
           await http.post(uri,body: payload).timeout(const Duration(seconds: timeOutDuration));
@@ -36,11 +41,10 @@ class BaseClient {
       throw FetchDataException('No Internet Connection', uri.toString());
     }
     on TimeoutException {
-      throw ApiNotRespondingExcention('Api not responding', uri.toString());
+      throw ApiNotRespondingException('Api not responding', uri.toString());
     }
   }
-  // DELETE
-  // OTHER
+  
 
   dynamic _processResponse(http.Response response) {
     switch (response.statusCode) {
