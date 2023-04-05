@@ -32,4 +32,27 @@ class DialogHelper {
       ),
     );
   }
+
+  // show loading
+  static void showLoading([String? message]) {
+    Get.dialog(
+      Dialog(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const CircularProgressIndicator(),
+              Text(message ?? ''),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // hide loading
+  static void hideLoading() {
+    if (Get.isDialogOpen!) Get.back();
+  }
 }

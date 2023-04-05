@@ -3,16 +3,26 @@ import 'package:base_client/services/app_exceptions.dart';
 
 class BaseController {
   void handleError(error) {
+    // print("ERRROR:: ${error.message}");
+
+    hideLoading();
     if (error is BadRequestException) {
       final message = error.message;
       DialogHelper.showErroDialog(description: message);
-    } 
-    else if (error is FetchDataException) {
+    } else if (error is FetchDataException) {
       final message = error.message;
       DialogHelper.showErroDialog(description: message);
+    } else if (error is ApiNotRespondingException) {
+      DialogHelper.showErroDialog(
+          description: 'Oops! It took longer to respond');
     }
-     else if (error is ApiNotRespondingException) {
-      DialogHelper.showErroDialog(description: 'Oops! It took longer to respond');
-    }
+  }
+
+  showLoading([String? message]) {
+    DialogHelper.showLoading(message);
+  }
+
+  hideLoading() {
+    DialogHelper.hideLoading();
   }
 }
